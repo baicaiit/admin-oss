@@ -1,6 +1,6 @@
 <?php
 
-namespace Ezreal\AdminOss;
+namespace Baicaiit\AdminOss;
 
 use Encore\Admin\Admin;
 use Encore\Admin\Form;
@@ -11,7 +11,7 @@ class AliOssFormServiceProvider extends ServiceProvider
 
 	public function boot(AliOssForm $extension)
 	{
-		
+
 		if (!AliOssForm::boot()) {
 			return;
 		}

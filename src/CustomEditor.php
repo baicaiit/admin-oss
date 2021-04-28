@@ -1,6 +1,6 @@
 <?php
 
-namespace Ezreal\AdminOss;
+namespace Baicaiit\AdminOss;
 
 use Encore\Admin\Form\Field;
 

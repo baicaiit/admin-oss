@@ -1,31 +1,24 @@
 #### 本扩展 是在 ezreal/admin-oss 基础上进行修改的
 
+> 文件或者富文本上传到 oss 的插件
+
 #### 安装
 
-`composer require ezreal/admin-oss`
+`composer require baicaiit/admin-oss`
 
 #### 发布前端资源 `php artisan vendor:publish --tag=admin-oss`
 
 #### 相关配置设置
 
-在`config/filesystems.php`中新增
+在`config/admin_oss.php`中配置
 ```php
-'oss'    => [
-            'driver'     => 'oss',
-            'access_id'  => env('OSS_ACCESS_ID'),
-            'access_key' => env('OSS_ACCESS_KEY'),
-            'bucket'     => env('OSS_BUCKET'),
-            'endpoint'   => env('OSS_ENDPOINT'),
-            // OSS 外网节点或自定义外部域名
-            'endpoint_internal' => env('OSS_ENDPOINT_INTERNAL'), // v2.0.4 新增配置属性，如果为空，则默认使用 endpoint 配置(由于内网上传有点小问题未解决，请大家暂时不要使用内网节点上传，正在与阿里技术沟通中)
-//            'cdnDomain'  => '<CDN domain, cdn域名>',
-            // 如果isCName为true, getUrl会判断cdnDomain是否设定来决定返回的url，如果cdnDomain未设置，则使用endpoint来生成url，否则使用cdn
-            'ssl'        => env('SSL'),
-            // true to use 'https://' and false to use 'http://'. default is false,
-            'isCName'    => env('ISCNAME'),
-            // 是否使用自定义域名,true: 则Storage.url()会使用自定义的cdn或域名生成文件url， false: 则使用外部节点生成url
-            'debug'      => env('DEBUG'),
-]
+    return [
+        "access_id" => env('OSS_ACCESSKEYID', ''),
+        "access_key" => env('OSS_ACCESSKEYSECRET', ''),
+        "bucket" => env('OSS_BUCKET', ''),
+        "endpoint" => env('OSS_ENDPOINT', ''),
+        "ssl" => env('OSS_SSL', false),
+    ];
 ```
 
 #### 用法

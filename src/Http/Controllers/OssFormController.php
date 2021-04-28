@@ -1,6 +1,6 @@
 <?php
 
-namespace Ezreal\AdminOss\Http\Controllers;
+namespace Baicaiit\AdminOss\Http\Controllers;
 
 use Encore\Admin\Layout\Content;
 use Illuminate\Routing\Controller;

@@ -18,13 +18,13 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"Ezreal\\AdminOss\\": "src/"
+			"Baicaiit\\AdminOss\\": "src/"
 		}
 	},
 	"extra": {
 		"laravel": {
 			"providers": [
-				"Ezreal\\AdminOss\\AliOssFormServiceProvider"
+				"Baicaiit\\AdminOss\\AliOssFormServiceProvider"
 			]
 		}
 	}
