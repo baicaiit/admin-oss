@@ -10,7 +10,7 @@ class OssFormController extends Controller
 	public function getOssParam()
 	{
 		//获取相关参数
-		$config = config('filesystems.disks.oss');
+		$config = config('admin_oss');
 		$id = $config['access_id'];
 		$key = $config['access_key'];
 		$host = $config['bucket'] . '.' .$config['endpoint'];
@@ -58,10 +58,10 @@ class OssFormController extends Controller
 	private function gmt_iso8601($time)
 	{
 		$dtStr = date( "c", $time );
-        $mydatetime = new \DateTime( $dtStr );
-        $expiration = $mydatetime->format( \DateTime::ISO8601 );
-        $pos = strpos( $expiration, '+' );
-        $expiration = substr( $expiration, 0, $pos );
-        return $expiration."Z";
+                $mydatetime = new \DateTime( $dtStr );
+                $expiration = $mydatetime->format( \DateTime::ISO8601 );
+                $pos = strpos( $expiration, '+' );
+                $expiration = substr( $expiration, 0, $pos );
+                return $expiration."Z";
 	}
 }

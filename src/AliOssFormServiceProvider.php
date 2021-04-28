@@ -9,8 +9,11 @@ use Illuminate\Support\ServiceProvider;
 class AliOssFormServiceProvider extends ServiceProvider
 {
 
-	public function boot(AliOssForm $extension) 
+	public function boot(AliOssForm $extension)
 	{
+		//发布配置文件
+		$this->publishes([]);
+
 		if (!AliOssForm::boot()) {
 			return;
 		}
@@ -23,7 +26,10 @@ class AliOssFormServiceProvider extends ServiceProvider
 		//注册静态资源
 		if ($this->app->runningInconsole() && $assets = $extension->assets()) {
 			$this->publishes(
-				[$assets => public_path('vendor/ezreal/admin-oss')],
+				[
+					$assets => public_path('vendor/ezreal/admin-oss'),
+					__DIR__ . '/../config/admin_oss.php' => config_path('admin_oss.php')
+				],
 				'admin-oss'
 			);
 		}
@@ -39,8 +45,5 @@ class AliOssFormServiceProvider extends ServiceProvider
 		$this->app->booted(function () {
 			AliOssForm::routes(__DIR__ . '/../routes/web.php');
 		});
-
-
 	}
 }
-
