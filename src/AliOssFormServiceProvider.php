@@ -11,9 +11,7 @@ class AliOssFormServiceProvider extends ServiceProvider
 
 	public function boot(AliOssForm $extension)
 	{
-		//发布配置文件
-		$this->publishes([]);
-
+		
 		if (!AliOssForm::boot()) {
 			return;
 		}
